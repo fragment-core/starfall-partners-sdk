@@ -1,6 +1,6 @@
 [project]
 name = "starfall-sdk"
-version = "0.1.0"
+version = "0.1.1"
 description = "StarFall Partners API SDK"
 readme = "README.md"
 requires-python = ">=3.13"

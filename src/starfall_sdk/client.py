@@ -63,9 +63,9 @@ class StarFallSDK:
 
         data = await response.json()
 
-        if error := data.get("error"):
+        if data.get("error"):
             raise StarFallSDKError(
-                message=error["message"],
+                message=data["message"],
                 status_code=response.status,
             )
 
