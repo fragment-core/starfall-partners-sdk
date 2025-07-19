@@ -72,12 +72,22 @@ class StarFallSDK:
         return model(**data)
 
     async def get_me(self) -> AgentModel:
+        """Get Agent Profile
+
+        Returns:
+            AgentModel: profile
+        """
         return await self._request(
             AgentModel,
             url="/agent/me",
         )
 
     async def get_rate(self) -> AgentRateModel:
+        """Get Agent Rates
+
+        Returns:
+            AgentRateModel: rates
+        """
         return await self._request(
             AgentRateModel,
             url="/agent/rates",
@@ -86,6 +96,15 @@ class StarFallSDK:
     async def get_transactions(
         self, offset: int, limit: int = 50
     ) -> PaginationModel[TransactionModel]:
+        """Get agent transactions
+
+        Args:
+            offset (int): offset
+            limit (int, optional): limit per request. Defaults to 50.
+
+        Returns:
+            PaginationModel[TransactionModel]: transactions
+        """
         return await self._request(
             PaginationModel[TransactionModel],
             url="/agent/transactions",
@@ -93,6 +112,14 @@ class StarFallSDK:
         )
 
     async def search_recipient(self, query: str) -> CustomerSearchModel:
+        """Search recipient
+
+        Args:
+            query (str): search query
+
+        Returns:
+            CustomerSearchModel: customer
+        """
         return await self._request(
             CustomerSearchModel,
             url="/transactions/search",
@@ -103,6 +130,16 @@ class StarFallSDK:
     async def create_transaction(
         self, customer_uuid: UUID | str, quantity: int, redirect_url: str
     ) -> TransactionModel:
+        """Create transaction
+
+        Args:
+            customer_uuid (UUID | str): customer uuid
+            quantity (int): product quantity
+            redirect_url (str): redirect url
+
+        Returns:
+            TransactionModel: transaction
+        """
         return await self._request(
             TransactionModel,
             url="/transactions/create",
@@ -114,7 +151,15 @@ class StarFallSDK:
             },
         )
 
-    async def get_transaction(self, transaction_id: UUID | str) -> TransactionModel:
+    async def get_transaction(self, transaction_id: int) -> TransactionModel:
+        """Get transaction by id
+
+        Args:
+            transaction_id (int): transaction id
+
+        Returns:
+            TransactionModel: transaction
+        """
         return await self._request(
             TransactionModel,
             url=f"/transactions/{transaction_id}",
