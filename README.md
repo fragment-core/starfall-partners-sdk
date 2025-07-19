@@ -45,16 +45,16 @@ async def main():
 
 ```json
 {
-    "id": int,
-    "agent_id": int,
-    "customer": {
-        "uuid": "uuid4",
-        "username": "str"
-    },
-    "amount": float,
-    "quantity": int,
-    "reward": float,
-    "status": "created|paid|success|failed"
+  "id": "int",
+  "agent_id": "int",
+  "customer": {
+    "uuid": "uuid4",
+    "username": "str"
+  },
+  "amount": "float",
+  "quantity": "int",
+  "reward": "float",
+  "status": "created|paid|success|failed"
 }
 ```
 
